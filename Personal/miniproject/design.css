@@ -148,12 +148,8 @@ background-image: url(/Personal/miniproject/images-mini/hulk-angry.webp);
      border-radius: 20px;
  }
 
- 
-
- 
  .container .card:hover{
      height: 330px;
-
  }
 
  .desc{
@@ -170,23 +166,84 @@ background-image: url(/Personal/miniproject/images-mini/hulk-angry.webp);
      margin: 0 0 15px 0;
  }
 
-/* slicker */
- .slider .slick-slide {
-     color: #FFF;
-     margin: 0 15px 0 0;
-     display:flex;
-     transform: scale(0.8);
-     transition: all 0.4s ease-in-out;
+
+ /*Caurosel*/
+.Happy {
+     position: relative;
+ }
+.sad{
+    position: relative;
+}
+.anger{
+    position: relative;
+}
+
+
+.card .main  {
+     opacity: 0.3;
  }
 
- .slider .slick-center {
-     transform: scale(1.1);
+ .card {
+     position: relative;
      opacity: 1;
-   
+     -webkit-transition: .4s ease all;
+     transition: .4s ease all;
+     margin: 0 -48px;
+     margin-top: 20px;
+ }
+
+ .inner-testimonials {
+     width: 100%;
+     max-width: 680px;
+     margin: 0 15px;
  }
 
 
- .slick-slide {
-     opacity: .6;
+.card .main {
+     border-radius: 5%;
+     overflow: hidden;
+     margin: 0 20px;
+     height: 100%;
+     object-fit: cover;
  }
 
+ /* body {
+     font-family: tahoma;
+ } */
+.custome_slide.owl-carousel .owl-item.active.center .main {
+    border: 2px solid #fff;
+}
+ .custome_slide.owl-carousel .owl-item.active.center {
+     transform: scale(1.3);
+     margin-top: 0 !important;
+     position: relative;
+     z-index: 999;
+     -webkit-transform: scale(1);
+     transform: scale(1);
+ }
+
+.custome_slide.owl-carousel .owl-item {
+     transform: scale(0.7);
+     padding: 10px 0px;
+     transition: all 0.5s;
+ }
+#slide-testimonal .active.center .card .main {
+    opacity: 1;
+}
+
+#slide-testimonal .center .card:before {
+    content: none;
+    transition: 0.7s ease-in-out;
+}
+
+
+
+ @media only screen and (max-width:767px) {
+     .main {
+         height: 400px;
+         width: 425px;
+         margin: 0 auto;
+         display: block;
+     }
+
+ }
