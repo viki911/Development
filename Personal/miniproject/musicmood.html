@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="/Personal/miniproject/design.css">
     <link rel="stylesheet" type="text/css"
         href="http://www.24limousine.com/wp-content/themes/24Limousine/assets/css/owl.carousel.min.css">
-
-</head>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    </head>
 
 <body>
 
@@ -41,11 +41,16 @@
     <div class=" owl-carousel custome_slide" id="slide-testimonal" >
         <div class="card">
         <div class="main">
-        <div class="cardbg"><img src="/Personal/miniproject/images-mini/onmyway.png" class="icon" /></div>
+        <div class="cardbg"><img   class="icon" src="/Personal/miniproject/images-mini/onmyway.png"></div>
         <div class="card-content">
-            <audio id="mysong" controls>
+            <audio  class="mysong">
                 <source src="/Personal/miniproject/Walker.mp3" type="audio/mp3">
             </audio>
+            <div class="music-icon">
+        <span class="favorite" onclick="handleFavorite()"><ion-icon name="heart"></ion-icon></span>
+        <span class="play" onclick="handlePlay()"><ion-icon name="play-circle-outline"></ion-icon></span>
+        <span class="repeat" onclick="handleRepeat()"><ion-icon name="repeat"></ion-icon></span>
+            </div>
 <pre class="desc">
 🅂🄾🄽🄶:
 🄼🄾🅅🄸🄴/🄰🄻🄱🅄🄼:
@@ -64,6 +69,17 @@
                     <audio id="mysong" controls>
                         <source src="/Personal/miniproject/Walker.mp3" type="audio/mp3">
                     </audio>
+                    <div class="music-icon">
+                        <span class="favorite" onclick="handleFavorite()">
+                            <ion-icon name="heart"></ion-icon>
+                        </span>
+                        <span class="play" onclick="handlePlay()">
+                            <ion-icon name="play-circle-outline"></ion-icon>
+                        </span>
+                        <span class="repeat" onclick="handleRepeat()">
+                            <ion-icon name="repeat"></ion-icon>
+                        </span>
+                    </div>
 <pre class="desc">
 🅂🄾🄽🄶:
 🄼🄾🅅🄸🄴/🄰🄻🄱🅄🄼:
@@ -292,7 +308,8 @@
 
 
 
-
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript"
     src="http://www.24limousine.com/wp-content/themes/24Limousine/assets/js/owl.carousel.min.js"></script>
