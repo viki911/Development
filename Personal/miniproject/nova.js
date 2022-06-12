@@ -27,31 +27,26 @@ const content = document.querySelector('.content');
 
 function speak(sentence) {
     const text_speak = new SpeechSynthesisUtterance(sentence);
-
     text_speak.rate = 1;
     text_speak.pitch = 1;
-
     window.speechSynthesis.speak(text_speak);
 }
 
-function wishMe() {
+function greet() {
     var day = new Date();
     var hr = day.getHours();
 
     if(hr >= 0 && hr < 12) {
-        speak("Good Morning Boss,What is your choice?. songs suggestion,quotes suggestion or movies suggestion");
+        speak("Good Morning Boss,I'm your NOVA. What is your choice?. songs suggestion,quotes suggestion or movies suggestion");
     }
-
     else if(hr == 12) {
-        speak("Good noon Boss,What is your choice?. songs suggestion,quotes suggestion or movies suggestion");
+        speak("Good noon Boss,I'm your NOVA. What is your choice?. songs suggestion,quotes suggestion or movies suggestion");
     }
-
     else if(hr > 12 && hr <= 17) {
-        speak("Good Afternoon Boss,What is your choice?.songs suggestion ,quotes suggestion or movies suggestion");
+        speak("Good Afternoon Boss,I'm your NOVA. What is your choice?.songs suggestion ,quotes suggestion or movies suggestion");
     }
-
     else {
-        speak("Good Evening Boss,What is your choice?. songs suggestion,quotes suggestion or movies suggestion");
+        speak("Good Evening Boss,I'm your NOVA. What is your choice?. songs suggestion,quotes suggestion or movies suggestion");
     }
 }
 function emotionalIP(){
@@ -59,7 +54,7 @@ function emotionalIP(){
 }
 window.addEventListener('load',()=>{
     speak("Going online");
-    wishMe();
+    greet();
 	
 })
 
@@ -82,17 +77,20 @@ function speakThis(message) {
 
     speech.text = "I did not understand what you said please try again";
 
-    if(message.includes('hey inertia') || message.includes('hello inertia')) {
-        const finalText = "Hello Boss";
-        speech.text = finalText;
-		
+    if(message.includes('hey nova') || message.includes('hello nova')) {
+        speech.text = "Hello Boss";
     }
-
+    else if(message.includes('what is your name?')){
+        speech.text = "I am Nova. The web bot boss";
+    }
+    else if(message.includes('what is your work?')){
+        const finalText = "My work is to provide you songs,quotes and movies based on your emotion";
+        speech.text = finalText;
+    }
     else if(message.includes('how are you')) {
         const finalText = "I am fine boss tell me how can i help you";
         speech.text = finalText;
     }
-
     else if(message.includes('song')) {
 		 emotionalIP();
     }
