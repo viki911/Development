@@ -7,18 +7,29 @@ $('.owl-carousel').owlCarousel({
 	},
     }
 });
+//quotes slider
+let slideIndex = 0;
+showSlides();
 
-// like
-function handleFavorite(x) {
-     x.classList.toggle('active');
-    }
+function showSlides() {
+  let i;
+  let Qslides = document.getElementsByClassName("myQSlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < Qslides.length; i++) {
+    Qslides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > Qslides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  Qslides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
 
-// repeat
-function handleRepeat(x) {
-        loop = true;
-        x.classList.toggle('active')
-    }
  
+
 
 
 //voice assistant
@@ -37,25 +48,26 @@ function greet() {
     var hr = day.getHours();
 
     if(hr >= 0 && hr < 12) {
-        speak("Good Morning Boss,I'm your NOVA. What is your choice?. songs suggestion,quotes suggestion or movies suggestion");
+        speak("Good Morning Boss,I'm your NOVA.");
     }
     else if(hr == 12) {
-        speak("Good noon Boss,I'm your NOVA. What is your choice?. songs suggestion,quotes suggestion or movies suggestion");
+        speak("Good noon Boss,I'm your NOVA.");
     }
     else if(hr > 12 && hr <= 17) {
-        speak("Good Afternoon Boss,I'm your NOVA. What is your choice?.songs suggestion ,quotes suggestion or movies suggestion");
+        speak("Good Afternoon Boss,I'm your NOVA.");
     }
     else {
-        speak("Good Evening Boss,I'm your NOVA. What is your choice?. songs suggestion,quotes suggestion or movies suggestion");
+        speak("Good Evening Boss,I'm your NOVA.");
     }
 }
+
 function emotionalIP(){
 	speak("What is your choice of emotion boss?")
 }
+
 window.addEventListener('load',()=>{
     speak("Going online");
     greet();
-	
 })
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -75,7 +87,7 @@ btn.addEventListener('click', ()=>{
 function speakThis(message) {
     const speech = new SpeechSynthesisUtterance();
 
-    speech.text = "I did not understand what you said please try again";
+  
 
     if(message.includes('hey nova') || message.includes('hello nova')) {
         speech.text = "Hello Boss";
@@ -95,21 +107,16 @@ function speakThis(message) {
 		 emotionalIP();
     }
 	else if(message.includes('quotes')) {
-		window.location.href = "/Personal/miniproject/Qutoes.html"
-		 emotionalIP();
-    }
-	else if(message.includes('movies')) {
-		window.location.href = "/Personal/miniproject/Movies.html"
 		 emotionalIP();
     }
     else if(message.includes('happy')) {
-		 window.location.href = "/Personal/miniproject/happy.html"
+		 window.location.href = "/Personal/miniproject/emotions/happy.html"
     }else if(message.includes('sad')) {
-		 window.location.href = "/Personal/miniproject/sad.html"
+		 window.location.href = "/Personal/miniproject/emotions/sad.html"
     }else if(message.includes('party')) {
-		 window.location.href = "/Personal/miniproject/party.html"
+		 window.location.href = "/Personal/miniproject/emotions/party.html"
     }else if(message.includes('motivational')) {
-		 window.location.href = "/Personal/miniproject/motivate.html"
+		 window.location.href = "/Personal/miniproject/emotions/motivate.html"
     }
     else if(message.includes('open google')) {
         window.open("https://google.com", "_blank");
@@ -164,6 +171,9 @@ function speakThis(message) {
 
     window.speechSynthesis.speak(speech);
 }
+
+
+
 
 
 //play and pause
