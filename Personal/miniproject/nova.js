@@ -1,35 +1,35 @@
 $('.owl-carousel').owlCarousel({
 	margin: 0,
 	center: true,
+	loop: true,
+	// nav: true,
 	responsive: {
 	0: {
 	   items: 1
 	},
     }
 });
-//quotes slider
-let slideIndex = 0;
-showSlides();
 
-function showSlides() {
-  let i;
-  let Qslides = document.getElementsByClassName("myQSlides");
-  let dots = document.getElementsByClassName("dot");
-  for (i = 0; i < Qslides.length; i++) {
-    Qslides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > Qslides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  Qslides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
 
- 
+//slider
+const buttons = document.querySelectorAll("[data-carousel-button]")
 
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    const offset = button.dataset.carouselButton === "next" ? 1 : -1
+    const slides = button
+      .closest("[data-carousel]")
+      .querySelector("[data-slides]")
+
+    const activeSlide = slides.querySelector("[data-active]")
+    let newIndex = [...slides.children].indexOf(activeSlide) + offset
+    if (newIndex < 0) newIndex = slides.children.length - 1
+    if (newIndex >= slides.children.length) newIndex = 0
+
+    slides.children[newIndex].dataset.active = true
+    delete activeSlide.dataset.active
+  })
+})
 
 
 //voice assistant
@@ -48,27 +48,70 @@ function greet() {
     var hr = day.getHours();
 
     if(hr >= 0 && hr < 12) {
-        speak("Good Morning Boss,I'm your NOVA.");
+        speak("Good Morning Boss,I'm your NOVA.What do you want boss,songs suggestion,quotes suggestion and movies suggestion?");
     }
     else if(hr == 12) {
-        speak("Good noon Boss,I'm your NOVA.");
+        speak("Good noon Boss,I'm your NOVA.What do you want boss,songs suggestion,quotes suggestion and movies suggestion?");
     }
     else if(hr > 12 && hr <= 17) {
-        speak("Good Afternoon Boss,I'm your NOVA.");
+        speak("Good Afternoon Boss,I'm your NOVA.What do you want boss,songs suggestion,quotes suggestion and movies suggestion?");
     }
     else {
-        speak("Good Evening Boss,I'm your NOVA.");
+        speak("Good Evening Boss,I'm your NOVA.What do you want boss,songs suggestion,quotes suggestion and movies suggestion?");
     }
 }
+
 
 function emotionalIP(){
 	speak("What is your choice of emotion boss?")
 }
 
-window.addEventListener('load',()=>{
+ let path = location.pathname;
+
+if(path == "/Personal/miniproject/Inertia.html"){
+   window.addEventListener('load',()=>{
+    alert('this is nova');
     speak("Going online");
     greet();
+    
+}) 
+}
+else if(path == "/Personal/miniproject/emotions/happy.html"){
+window.addEventListener('load',()=>{
+    speak("Going online");
+    speak("Here is your prefered music,enjoy it boss  ")
 })
+}
+else if(path == "/Personal/miniproject/emotions/sad.html"){
+window.addEventListener('load',()=>{
+    speak("Going online");
+    speak("Here is your prefered music,enjoy it boss")
+})
+}
+else if(path == "/Personal/miniproject/emotions/motivate.html"){
+window.addEventListener('load',()=>{
+    speak("Going online");
+    speak("Here is your prefered music,enjoy it boss ")
+})
+}
+else if(path == "/Personal/miniproject/emotions/party.html"){
+window.addEventListener('load',()=>{
+    speak("Going online");
+    speak("Here is your prefered music,enjoy it boss")
+})
+}
+else if(path == "/Personal/miniproject/movies.html"){
+window.addEventListener('load',()=>{
+    speak("Going online");
+    speak("Here is your prefered content,enjoy  your movies boss")
+})
+}
+else{
+  window.addEventListener('load',()=>{
+    speak("Going online");
+    speak("Here is your prefered content,take a look at your quotes boss")
+})
+}
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -87,9 +130,7 @@ btn.addEventListener('click', ()=>{
 function speakThis(message) {
     const speech = new SpeechSynthesisUtterance();
 
-  
-
-    if(message.includes('hey nova') || message.includes('hello nova')) {
+    if(message.includes('hey') || message.includes('hello')) {
         speech.text = "Hello Boss";
     }
     else if(message.includes('what is your name?')){
@@ -107,6 +148,11 @@ function speakThis(message) {
 		 emotionalIP();
     }
 	else if(message.includes('quotes')) {
+    window.location.href ="/Personal/miniproject/quotes.html"
+		 emotionalIP();
+    }
+  else if(message.includes('movies')) {
+    window.location.href ="/Personal/miniproject/movies.html"
 		 emotionalIP();
     }
     else if(message.includes('happy')) {
@@ -171,7 +217,6 @@ function speakThis(message) {
 
     window.speechSynthesis.speak(speech);
 }
-
 
 
 
