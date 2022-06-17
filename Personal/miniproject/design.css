@@ -113,7 +113,11 @@
 
  .logo {
      width: 200px;
+     height: 100px;
      cursor: pointer;
+     border-radius:50px 15px 50px 15px;
+     position: relative;
+     right: 60px;
  }
 
  .navbar ul li {
@@ -127,6 +131,8 @@
      color: #fff;
      font-weight: bold;
      font-family: sans-serif;
+     position: relative;
+     left: 20px;
  }
 
  .content {
@@ -267,4 +273,26 @@ body {
 
 .carousel-button.next {
     right: 1rem;
+}
+
+/*footer*/
+.footer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 20px;
+    background-color: #06283D;
+    height: 200px;
+    margin-top: 0;
+}
+
+.media a img{
+   padding: 10px;
+}
+
+
+
+.media a img:hover{
+    transform: skewX(20deg);
 }
