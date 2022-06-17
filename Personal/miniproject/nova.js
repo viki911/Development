@@ -156,13 +156,59 @@ function speakThis(message) {
 		 emotionalIP();
     }
     else if(message.includes('happy')) {
-		 window.location.href = "/Personal/miniproject/emotions/happy.html"
-    }else if(message.includes('sad')) {
-		 window.location.href = "/Personal/miniproject/emotions/sad.html"
-    }else if(message.includes('party')) {
-		 window.location.href = "/Personal/miniproject/emotions/party.html"
-    }else if(message.includes('motivational')) {
-		 window.location.href = "/Personal/miniproject/emotions/motivate.html"
+      if(path == "/Personal/miniproject/movies.html")
+      {
+           window.location.href = "#happy-mov";
+      }
+      else if(path == "/Personal/miniproject/quotes.html"){
+         window.location.href="#happy-quo";
+      }
+		  else{
+          window.location.href = "/Personal/miniproject/emotions/happy.html";
+      }
+    }
+    else if(message.includes('sad')) {
+        if(path == "/Personal/miniproject/movies.html")
+      {
+           window.location.href = "#sad-mov";
+      }
+      else if(path == "/Personal/miniproject/quotes.html"){
+         window.location.href="#sad-quo";
+      }
+		  else{
+          window.location.href = "/Personal/miniproject/emotions/sad.html";
+      }
+    }
+    else if(message.includes('motivational')) {
+        if(path == "/Personal/miniproject/movies.html")
+      {
+           window.location.href = "#motivational-mov";
+      }
+      else if(path == "/Personal/miniproject/quotes.html"){
+         window.location.href="#motivational-quo";
+      }
+		  else{
+          window.location.href = "/Personal/miniproject/emotions/motivate.html";
+      }
+    }
+    else if(message.includes('action')) {
+        window.location.href = "#action-mov";
+    
+    }
+    else if(message.includes('thriller')) {
+   
+           window.location.href = "#thriller-mov";
+  
+    }
+    else if(message.includes('angry')){
+
+        window.location.href = "#angry-quo";
+
+    }
+    else if(message.includes('party')) {
+
+		 window.location.href = "/Personal/miniproject/emotions/party.html";
+     
     }
     else if(message.includes('open google')) {
         window.open("https://google.com", "_blank");
