@@ -319,7 +319,13 @@ font-size: 50px;
 
 }
 
+.emotion-title {
+    background-color: #00bcd4;
+    text-align: center;
+    padding: 14px;
+    margin-top: 5px;
 
+}
 
 /* audio play */
 body {

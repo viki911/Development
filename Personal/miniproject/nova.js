@@ -80,6 +80,7 @@ else if(path == "/Personal/miniproject/emotions/happy.html"){
 window.addEventListener('load',()=>{
     speak("Going online");
     speak("Here is your prefered music,enjoy it boss  ")
+  
 })
 }
 else if(path == "/Personal/miniproject/emotions/sad.html"){
@@ -267,8 +268,8 @@ function speakThis(message) {
 
 
 
-//play and pause
-$(function () {
+//Music player
+$(function player() {
   var playerTrack = $("#player-track"),
     bgArtwork = $("#bg-artwork"),
     bgArtworkUrl,
